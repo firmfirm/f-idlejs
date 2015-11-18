@@ -1,0 +1,81 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+Idle.Js wrapper element.
+
+Example:
+
+    <idlejs-element timeout="5000"></idlejs-element>
+
+@element idlejs-element
+@demo demo/index.html
+-->
+<dom-module id="idlejs-element">
+  <template>
+  </template>
+</dom-module>
+
+<script src="../Idle.Js/build/idle.min.js"></script>
+<script>
+
+  Polymer({
+
+    is: 'idlejs-element',
+
+    properties: {
+
+      /**
+       * `timeout` indicates idle timeout in milliseconds
+       */
+      timeout: {
+        type: Number,
+        observer: '_timeoutChanged'
+      }
+
+    },
+
+    // Element Behavior
+
+    /**
+     * The `hidden` event is fired whenever page is hidden (e.g. change tab)
+     *
+     * @event hidden
+     */
+
+    /**
+     * The `visible` event is fired whenever page is visible after being hidden
+     *
+     * @event visible
+     */
+
+    /**
+     * The `away` event is fired whenever user is inactive for `timeout` ms
+     *
+     * @event away
+     */
+
+    /**
+     * The `back` event is fired whenever user becomes active again
+     *
+     * @event back
+     */
+
+    _timeoutChanged: function(newValue) {
+      if (this._idle) this._idle.stop();
+      this._idle = new Idle({
+				onHidden: this._hidden.bind(this),
+				onVisible: this._visible.bind(this),
+				onAway: this._away.bind(this),
+				onAwayBack: this._back.bind(this),
+				awayTimeout: newValue
+			}).start();
+    },
+
+    _hidden: function() { this.fire('hidden'); },
+    _visible: function() { this.fire('visible'); },
+    _away: function() { this.fire('away'); },
+    _back: function() { this.fire('back'); }
+
+  });
+
+</script>

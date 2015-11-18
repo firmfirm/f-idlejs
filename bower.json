@@ -1,0 +1,31 @@
+{
+  "name": "idlejs-element",
+  "version": "1.0.3",
+  "authors": [
+    "Martynas <martynas@firmfirm.co>"
+  ],
+  "description": "Idle.Js wrapper element",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "idle"
+  ],
+  "main": "idlejs-element.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/firmfirm/idlejs-element/",
+  "ignore": [
+    "**/.*",
+    "package.json",
+    "src/",
+    "node_modules/",
+    "bower_components/",
+    "test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.1.0",
+    "Idle.Js": "shawnmclean/Idle.js#~1.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0"
+  }
+}
