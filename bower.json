@@ -1,12 +1,12 @@
 {
   "name": "idlejs-element",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "authors": [
     "Martynas <martynas@firmfirm.co>"
   ],
   "description": "Idle.Js wrapper element",
   "keywords": [
-    "web-component",
+    "web-components",
     "polymer",
     "idle"
   ],
