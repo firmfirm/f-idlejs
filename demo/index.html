@@ -4,19 +4,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-    <title>idlejs-element Demo</title>
+    <title>f-idlejs Demo</title>
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../idlejs-element.html">
+    <link rel="import" href="../f-idlejs.html">
   </head>
   <body unresolved>
 
-    <p>An example of <code>&lt;idlejs-element&gt;</code> (timeout is set to 5000):</p>
+    <p>An example of <code>&lt;f-idlejs&gt;</code> (timeout is set to 5000):</p>
 
-    <idlejs-element timeout="5000"></idlejs-element>
+    <f-idlejs timeout="5000"></f-idlejs>
     <div id="log" />
 
     <script>
-      var el = document.querySelector('idlejs-element'),
+      var el = document.querySelector('f-idlejs'),
           log = document.querySelector('#log');
 
       var doLog = function(text) {

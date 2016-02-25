@@ -1,0 +1,48 @@
+<script>
+
+window.FInterface = window.FInterface || {};
+
+/**
+ * `FInterface.IdleTracker` exposes properties for any idle tracker.
+ *
+ * To be used in idle trackers, their wrappers, stubs or replacements.
+ *
+ * @polymerBehavior
+ */
+FInterface.IdleTracker = {
+  properties: {
+    /**
+     * `timeout` indicates idle timeout in milliseconds
+     */
+    timeout: {
+      type: Number,
+      reflectToAttribute: true
+    }
+  }
+
+  /**
+   * The `hidden` event is fired whenever page is hidden (e.g. change tab)
+   *
+   * @event hidden
+   */
+
+  /**
+   * The `visible` event is fired whenever page is visible after being hidden
+   *
+   * @event visible
+   */
+
+  /**
+   * The `away` event is fired whenever user is inactive for `timeout` ms
+   *
+   * @event away
+   */
+
+  /**
+   * The `back` event is fired whenever user becomes active again
+   *
+   * @event back
+   */
+}
+
+</script>

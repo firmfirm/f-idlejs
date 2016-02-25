@@ -1,18 +1,19 @@
 {
-  "name": "idlejs-element",
+  "name": "f-idlejs",
   "version": "0.1.1",
   "authors": [
     "Martynas <martynas@firmfirm.co>"
   ],
-  "description": "Idle.Js wrapper element",
+  "description": "shawnmclean/Idle.js wrapper element, built with Polymer",
   "keywords": [
     "web-components",
     "polymer",
-    "idle"
+    "idle",
+    "timeout",
+    "shawnmclean"
   ],
-  "main": "idlejs-element.html",
-  "license": "http://polymer.github.io/LICENSE.txt",
-  "homepage": "https://github.com/firmfirm/idlejs-element/",
+  "main": "f-idlejs.html",
+  "homepage": "https://github.com/firmfirm/f-idlejs/",
   "ignore": [
     "**/.*",
     "package.json",
@@ -22,10 +23,11 @@
     "test/"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.1.0",
-    "Idle.Js": "shawnmclean/Idle.js#~1.0.0"
+    "polymer": "Polymer/polymer#^1.3.0",
+    "Idle.Js": "firmfirm/Idle.js#70a6073"
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0"
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "^4.2.1"
   }
 }
