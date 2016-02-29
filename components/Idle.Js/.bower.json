@@ -1,0 +1,27 @@
+{
+  "name": "Idle.Js",
+  "main": "build/idle.js",
+  "ignore": [
+    "example",
+    "src",
+    "text",
+    ".gitignore",
+    ".travis.yml",
+    "Gruntfile.coffee",
+    "LICENSE",
+    "README.md",
+    "package.json",
+    "index.htm",
+    "package.json"
+  ],
+  "dependencies": {},
+  "homepage": "https://github.com/shawnmclean/Idle.js",
+  "_release": "f46e86f",
+  "_resolution": {
+    "type": "commit",
+    "commit": "f46e86f"
+  },
+  "_source": "git://github.com/shawnmclean/Idle.js.git",
+  "_target": "f46e86f",
+  "_originalSource": "shawnmclean/Idle.js"
+}

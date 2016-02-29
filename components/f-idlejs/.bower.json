@@ -1,0 +1,42 @@
+{
+  "name": "f-idlejs",
+  "authors": [
+    "Martynas <martynas@firmfirm.co>"
+  ],
+  "description": "shawnmclean/Idle.js wrapper element, built with Polymer",
+  "keywords": [
+    "web-components",
+    "polymer",
+    "idle",
+    "timeout",
+    "shawnmclean"
+  ],
+  "main": "f-idlejs.html",
+  "homepage": "https://github.com/firmfirm/f-idlejs/",
+  "ignore": [
+    "**/.*",
+    "package.json",
+    "src/",
+    "node_modules/",
+    "bower_components/",
+    "test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.3.0",
+    "Idle.Js": "shawnmclean/Idle.js#f46e86f"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "^4.2.1"
+  },
+  "_release": "a5921ed579",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "a5921ed579e75a3d464f2514af09d6186187e4e3"
+  },
+  "_source": "git@github.com:firmfirm/f-idlejs.git",
+  "_target": "master",
+  "_originalSource": "git@github.com:firmfirm/f-idlejs",
+  "_direct": true
+}

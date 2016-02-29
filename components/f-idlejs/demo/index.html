@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>f-idlejs Demo</title>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../f-idlejs.html">
+  </head>
+  <body unresolved>
+
+    <p>An example of <code>&lt;f-idlejs&gt;</code> (timeout is set to 5000):</p>
+
+    <f-idlejs timeout="5000"></f-idlejs>
+    <div id="log" />
+
+    <script>
+      var el = document.querySelector('f-idlejs'),
+          log = document.querySelector('#log');
+
+      var doLog = function(text) {
+        var p = document.createElement('p');
+        p.textContent = text;
+        log.appendChild(p);
+      };
+
+      el.addEventListener('away', function() { doLog('away'); });
+      el.addEventListener('back', function() { doLog('back'); });
+      el.addEventListener('hidden', function() { doLog('hidden'); });
+      el.addEventListener('visible', function() { doLog('visible'); });
+
+    </script>
+
+  </body>
+</html>
