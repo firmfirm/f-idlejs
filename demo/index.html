@@ -13,6 +13,7 @@
     <p>An example of <code>&lt;f-idlejs&gt;</code> (timeout is set to 5000):</p>
 
     <f-idlejs timeout="5000"></f-idlejs>
+    <button onclick="pause()">Pause/Resume</button>
     <div id="log" />
 
     <script>
@@ -24,6 +25,13 @@
         p.textContent = text;
         log.appendChild(p);
       };
+
+      var paused = false;
+      function pause() {
+        var evt = paused ? 'f-idlejs-resume' : 'f-idlejs-pause';
+        document.dispatchEvent(new Event(evt));
+        paused = !paused;
+      }
 
       el.addEventListener('away', function() { doLog('away'); });
       el.addEventListener('back', function() { doLog('back'); });

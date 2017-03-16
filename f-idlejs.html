@@ -14,15 +14,29 @@ Example:
 -->
 <dom-module id="f-idlejs">
 <script>
-
+(function(document) {
   Polymer({
-
     is: 'f-idlejs',
     behaviors: [FInterface.IdleTracker],
     observers: ['_timeoutChanged(timeout)'],
 
-    _timeoutChanged: function(newValue) {
+    attached() {
+      this._pauseListener = () => this._timeoutChanged();
+      this._resumeListener = () => this._timeoutChanged(this.timeout);
+      document.addEventListener('f-idlejs-pause', this._pauseListener);
+      document.addEventListener('f-idlejs-resume', this._resumeListener);
+      console.log('added');
+    },
+
+    detached() {
+      document.removeEventListener('f-idlejs-pause', this._pauseListener);
+      document.removeEventListener('f-idlejs-resume', this._resumeListener);
+      console.log('removed');
+    },
+
+    _timeoutChanged(newValue) {
       if (this._idle) this._idle.stop();
+      if (!newValue) return;
       this._idle = new Idle({
 				onHidden: this._hidden.bind(this),
 				onVisible: this._visible.bind(this),
@@ -33,12 +47,11 @@ Example:
       this._idle.start();
     },
 
-    _hidden: function() { this.fire('hidden'); },
-    _visible: function() { this.fire('visible'); },
-    _away: function() { this.fire('away'); },
-    _back: function() { this.fire('back'); }
-
+    _hidden() { this.fire('hidden'); },
+    _visible() { this.fire('visible'); },
+    _away() { this.fire('away'); },
+    _back() { this.fire('back'); }
   });
-
+})(document);
 </script>
 </dom-module>
