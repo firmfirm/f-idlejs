@@ -25,13 +25,11 @@ Example:
       this._resumeListener = () => this._timeoutChanged(this.timeout);
       document.addEventListener('f-idlejs-pause', this._pauseListener);
       document.addEventListener('f-idlejs-resume', this._resumeListener);
-      console.log('added');
     },
 
     detached() {
       document.removeEventListener('f-idlejs-pause', this._pauseListener);
       document.removeEventListener('f-idlejs-resume', this._resumeListener);
-      console.log('removed');
     },
 
     _timeoutChanged(newValue) {
