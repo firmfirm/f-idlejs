@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#~2.0.0",
-    "Idle.js": "shawnmclean/Idle.js#f46e86f"
+    "Idle.js": "shawnmclean/Idle.js#db9beb3483a460ad638ec947867720f0ed066a62"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#~2.0.0",
