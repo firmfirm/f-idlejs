@@ -1,0 +1,28 @@
+{
+  "name": "f-idlejs",
+  "version": "2.5.0",
+  "description": "shawnmclean/Idle.js wrapper element, built with Polymer",
+  "scripts": {
+    "test": "polymer test --npm",
+    "start": "polymer serve --npm"
+  },
+  "keywords": [
+    "web-components",
+    "polymer",
+    "idle",
+    "timeout",
+    "shawnmclean"
+  ],
+  "homepage": "https://github.com/firmfirm/f-idlejs/",
+  "main": "f-idlejs.js",
+  "author": "Martynas <martynas@firmfirm.co>",
+  "dependencies": {
+    "@mkazlauskas/idle.js": "^0.0.1",
+    "@polymer/polymer": "^3.0.0"
+  },
+  "devDependencies": {
+    "@polymer/iron-component-page": "^3.0.0-pre.18",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "wct-browser-legacy": "^1.0.1"
+  }
+}

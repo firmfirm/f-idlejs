@@ -1,5 +1,3 @@
-<script>
-
 window.FInterface = window.FInterface || {};
 
 /**
@@ -44,5 +42,3 @@ FInterface.IdleTracker = {
    * @event back
    */
 }
-
-</script>

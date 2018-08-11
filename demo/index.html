@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <title>f-idlejs Demo</title>
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../f-idlejs.html">
+    <script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <script type="module" src="../f-idlejs.js"></script>
   </head>
   <body unresolved>
 
@@ -37,7 +37,6 @@
       el.addEventListener('back', function() { doLog('back'); });
       el.addEventListener('hidden', function() { doLog('hidden'); });
       el.addEventListener('visible', function() { doLog('visible'); });
-
     </script>
 
   </body>

@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <script src="../../web-component-tester/browser.js"></script>
+    <script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <script src="../../wct-browser-legacy/browser.js"></script>
 
-    <link rel="import" href="../f-idlejs.html">
+    <script type="module" src="../f-idlejs.js"></script>
   </head>
   <body>
 
@@ -17,62 +17,61 @@
     </template>
   </test-fixture>
 
-  <script>
-    // TODO: test pause/resume
-    'use strict'
-    describe('<f-idlejs>', () => {
+  <script type="module">
+import '../f-idlejs.js';
+describe('<f-idlejs>', () => {
 
-      let el, idlejs, callbacks;
+  let el, idlejs, callbacks;
 
-      beforeEach(() => {
-        el = fixture('f-idlejs-fixture');
-        window.Idle = sinon.stub();
-        window.Idle.onFirstCall().returns(idlejs = {
-          stop: sinon.spy(),
-          start: sinon.spy()
-        });
-        el.timeout = 50;
-        callbacks = Idle.args[0][0];
-      });
-
-      it('uses original IdleJs', function() {
-        expect(window.Idle).to.be.calledWithNew;
-        expect(window.Idle).to.be.calledOnce;
-        expect(idlejs.start).to.be.calledOnce;
-        expect(callbacks.awayTimeout).to.equal(50);
-      });
-
-      it('stops previous instance when there is a new one', function() {
-        var newIdle;
-        window.Idle.onSecondCall().returns(newIdle = { start: sinon.spy() });
-        el.timeout = 100;
-        expect(window.Idle).to.be.calledTwice;
-        expect(idlejs.stop).to.be.calledOnce;
-        expect(newIdle.start).to.be.calledOnce;
-      });
-
-      it('fires `hidden`', function(done) {
-        el.addEventListener('hidden', () => done());
-        callbacks.onHidden();
-      });
-
-      it('fires `visible`', function(done) {
-        el.addEventListener('visible', () => done());
-        callbacks.onVisible();
-      });
-
-      it('fires `away`', function(done) {
-        el.addEventListener('away', () => done());
-        callbacks.onAway();
-      });
-
-      it('fires `back`', function(done) {
-        el.addEventListener('back', () => done());
-        callbacks.onAwayBack();
-      });
-
+  beforeEach(() => {
+    el = fixture('f-idlejs-fixture');
+    window.Idle = sinon.stub();
+    window.Idle.onFirstCall().returns(idlejs = {
+      stop: sinon.spy(),
+      start: sinon.spy()
     });
-  </script>
+    el.timeout = 50;
+    callbacks = Idle.args[0][0];
+  });
+
+  it('uses original IdleJs', function() {
+    expect(window.Idle).to.be.calledWithNew;
+    expect(window.Idle).to.be.calledOnce;
+    expect(idlejs.start).to.be.calledOnce;
+    expect(callbacks.awayTimeout).to.equal(50);
+  });
+
+  it('stops previous instance when there is a new one', function() {
+    var newIdle;
+    window.Idle.onSecondCall().returns(newIdle = { start: sinon.spy() });
+    el.timeout = 100;
+    expect(window.Idle).to.be.calledTwice;
+    expect(idlejs.stop).to.be.calledOnce;
+    expect(newIdle.start).to.be.calledOnce;
+  });
+
+  it('fires `hidden`', function(done) {
+    el.addEventListener('hidden', () => done());
+    callbacks.onHidden();
+  });
+
+  it('fires `visible`', function(done) {
+    el.addEventListener('visible', () => done());
+    callbacks.onVisible();
+  });
+
+  it('fires `away`', function(done) {
+    el.addEventListener('away', () => done());
+    callbacks.onAway();
+  });
+
+  it('fires `back`', function(done) {
+    el.addEventListener('back', () => done());
+    callbacks.onAwayBack();
+  });
+
+});
+</script>
 
 </body>
 </html>
