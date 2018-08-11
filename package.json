@@ -1,6 +1,6 @@
 {
   "name": "f-idlejs",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "shawnmclean/Idle.js wrapper element, built with Polymer",
   "scripts": {
     "test": "polymer test --npm",
