@@ -1,5 +1,4 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../Idle.js/idlejs.html">
 <link rel="import" href="./finterface-idle-tracker.html">
 
 <!--
@@ -13,43 +12,44 @@ Example:
 @demo demo/index.html
 -->
 <dom-module id="f-idlejs">
-<script>
-(function(document) {
-  Polymer({
-    is: 'f-idlejs',
-    behaviors: [FInterface.IdleTracker],
-    observers: ['_timeoutChanged(timeout)'],
+  <script src="./idlejs.js"></script>
+  <script>
+    (function (document) {
+      Polymer({
+        is: 'f-idlejs',
+        behaviors: [FInterface.IdleTracker],
+        observers: ['_timeoutChanged(timeout)'],
 
-    attached() {
-      this._pauseListener = () => this._timeoutChanged();
-      this._resumeListener = () => this._timeoutChanged(this.timeout);
-      document.addEventListener('f-idlejs-pause', this._pauseListener);
-      document.addEventListener('f-idlejs-resume', this._resumeListener);
-    },
+        attached() {
+          this._pauseListener = () => this._timeoutChanged();
+          this._resumeListener = () => this._timeoutChanged(this.timeout);
+          document.addEventListener('f-idlejs-pause', this._pauseListener);
+          document.addEventListener('f-idlejs-resume', this._resumeListener);
+        },
 
-    detached() {
-      document.removeEventListener('f-idlejs-pause', this._pauseListener);
-      document.removeEventListener('f-idlejs-resume', this._resumeListener);
-    },
+        detached() {
+          document.removeEventListener('f-idlejs-pause', this._pauseListener);
+          document.removeEventListener('f-idlejs-resume', this._resumeListener);
+        },
 
-    _timeoutChanged(newValue) {
-      if (this._idle) this._idle.stop();
-      if (!newValue) return;
-      this._idle = new Idle({
-				onHidden: this._hidden.bind(this),
-				onVisible: this._visible.bind(this),
-				onAway: this._away.bind(this),
-				onAwayBack: this._back.bind(this),
-				awayTimeout: newValue
-			});
-      this._idle.start();
-    },
+        _timeoutChanged(newValue) {
+          if (this._idle) this._idle.stop();
+          if (!newValue) return;
+          this._idle = new window.Idle({
+            onHidden: this._hidden.bind(this),
+            onVisible: this._visible.bind(this),
+            onAway: this._away.bind(this),
+            onAwayBack: this._back.bind(this),
+            awayTimeout: newValue
+          });
+          this._idle.start();
+        },
 
-    _hidden() { this.fire('hidden'); },
-    _visible() { this.fire('visible'); },
-    _away() { this.fire('away'); },
-    _back() { this.fire('back'); }
-  });
-})(document);
-</script>
+        _hidden() { this.fire('hidden'); },
+        _visible() { this.fire('visible'); },
+        _away() { this.fire('away'); },
+        _back() { this.fire('back'); }
+      });
+    })(document);
+  </script>
 </dom-module>

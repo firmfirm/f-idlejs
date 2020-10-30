@@ -22,8 +22,7 @@
     "test/"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#~2.0.0",
-    "Idle.js": "firmfirm/Idle.js#1.0.2"    
+    "polymer": "Polymer/polymer#~2.0.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#~2.0.0",
